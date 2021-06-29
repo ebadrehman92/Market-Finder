@@ -77,12 +77,13 @@ function addMarketCards () {
 searchBtn.on("click", function() {
     var zip = $("#zip-in").val();
     console.log(zip);
+
+    marketCardContainer.removeClass("hide");
+    backgroundImg.addClass("hide");
     
     addMarketCards();
 
     getResults(zip);
 
-    marketCardContainer.removeClass("hide");
-    backgroundImg.addClass("hide");
     //getRecipe();
 });
