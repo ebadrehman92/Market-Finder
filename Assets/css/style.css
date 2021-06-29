@@ -68,11 +68,11 @@
     border: 1px solid var(--darkBrown);
 }
 
-    background: var(--darkBrown);
+    /* background: var(--darkBrown);
     color: orange;
     font-size: 20px;
     font-style: italic;
-}
+} */
 
 .logo {
     margin-top: 5px;
