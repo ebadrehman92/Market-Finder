@@ -1,6 +1,9 @@
 zip = 77024;
 var id = [];
 var details = [];
+var ingredients = "broccoli"
+var recipeKey = "ed84eec3dc524169bf8954cb1aa495ef";
+var ingredients = "broccoli";
 
 function getResults(zip) {
     fetch("http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip)
@@ -31,4 +34,15 @@ function getDetails(id, i) {
     });
 }
 
+function getRecipe() {
+    fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=" + recipeKey + "&ingredients=" + ingredients)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data){
+            console.log(data);
+        })
+}
+
+getRecipe();
 getResults(zip);
