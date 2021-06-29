@@ -125,3 +125,84 @@
 .checked {
     color: orange;
   }
+
+  .fa {  
+    padding: 20px;  
+  text-align: center;  
+    margin: 5px 2px;  
+    font-size: 30px;  
+    width: 50px;  
+  }  
+  .fa-facebook {  
+    background: #3B5998;  
+    color: white;  
+  }  
+  .fa-twitter {  
+    background: #55ACEE;  
+    color: white;  
+  }    
+  .fa-linkedin {  
+    background: #007bb5;  
+    color: white;  
+  }  
+  .fa-instagram {  
+    background: #125688;  
+    color: white;  
+  }
+  .align {
+      text-align: right;
+      padding-right: 40px;
+      padding-top: 20px;
+  }
+  .foot {
+      background-color: rgb(192, 191, 191);
+      height: 280px;
+      width: 100%;
+      border-top: 2px black solid;
+
+  }
+
+  #space {
+      border-radius: 5px;
+      padding-bottom: 20px;
+      font-size: 25px;
+      padding-right:50px;
+  }
+  .pad {
+      padding-left:10px;
+      padding-right: 10px;
+  }
+
+  .fa{
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+  
+  .fa:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;  
+    top: 14px;
+    right: -20px;
+    transition: 0.5s;
+  }
+  
+  .fa:hover{
+    padding-right: 24px;
+    padding-left:8px;
+  }
+  
+  .fa:hover:after {
+    opacity: 1;
+    right: 10px;
+  }
+
+  #line {
+      width:100%;
+  }
+
+  .text {
+      text-align: center;
+  }
