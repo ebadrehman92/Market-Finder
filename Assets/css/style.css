@@ -1,16 +1,71 @@
 /* color variables */
 :root{
     --darkBrown: #1f0c07;
-    --burntOrange: rgb(204, 133, 0);
+    --lightGrey: #adbed9;
+    --darkGreen: #1f5e43;
 }
 
 /* header */
 .styled-header {
+    display: flex;
+    background: var(--lightGrey);
+    line-height: 400%;
+}
 
-    background: var(--darkBrown);
-    color: var(--burntOrange);
+/* styles Market Finder text in header */
+.logo {
+    justify-content: start;
+    align-items:center;
+    width: 50%;
+    margin-left: 1em;
+    font-size: 40px;
+    color: var(--darkGreen);
+    font-weight: bold;
+}
+
+/* find your closest farmers market text */
+.description {
+    width: 50%;
+    justify-content: end;
+    align-items:center;
+    margin-right: 2em;
     font-size: 20px;
+    color: var(--darkBrown);
     font-style: italic;
+}
+
+/* styles text in side bar */
+.text-style {
+    color: var(--darkBrown);
+}
+
+/* styles sidebar background */
+.sidebar-background{
+    background-color: var(--lightGrey);
+    border: 2px solid var(--darkGreen);
+}
+
+.zip-style{
+    margin-top: 1em;
+}
+
+.logIn-style{
+    padding-top: 3em;
+}
+
+/* styles submit button in side bar */
+.button-style{
+    background-color: transparent;
+    color: var(--darkGreen);
+    border: 1px solid var(--darkGreen);
+    border-radius: 10%;
+    margin-bottom: 15em;
+}
+
+.button-style:hover{
+    background-color: var(--darkGreen);
+    color: white;
+    border: 1px solid var(--darkBrown);
 }
 
 .logo {
