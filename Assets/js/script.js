@@ -1,9 +1,9 @@
-zip = 77024;
 var id = [];
 var details = [];
 var ingredients = "broccoli"
 var recipeKey = "ed84eec3dc524169bf8954cb1aa495ef";
 var ingredients = "broccoli";
+var searchBtn = $('#search-btn');
 
 function getResults(zip) {
     fetch("http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip)
@@ -44,5 +44,11 @@ function getRecipe() {
         })
 }
 
-getRecipe();
-getResults(zip);
+searchBtn.on("click", function() {
+    var zip = $("#zip-in").val();
+    console.log(zip);
+    
+    getResults(zip);
+    getRecipe();
+});
+
