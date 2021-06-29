@@ -71,7 +71,6 @@ function addMarketCards () {
         marketCardContainer.children().eq(i).append("<div class='card-phone'><h4></h4></div>");
         marketCardContainer.children().eq(i).children().eq(3).children().first().text(phone);
     }
-        
 }
 
 searchBtn.on("click", function() {
