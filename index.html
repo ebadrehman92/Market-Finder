@@ -7,14 +7,12 @@
     <link rel="stylesheet" href="./Assets/css/reset.css">
     <link rel="stylesheet" href="./Assets/css/style.css" class="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Farmer's Market Finder</title>
 </head>
 <body>
     <header class="styled-header">
         <div class="logo">
-            <!-- <a href="./index.html">
-                <img src="./Assets/images/closecuts.png" alt="Close Cuts logo-img" class="logo-img">
-            </a> -->
             <h1>Market Finder</h1>
         </div>
         <div class="description description-style">
@@ -30,32 +28,49 @@
                 <form class="grid mr-2 content-center w-full">
                     <input
                         class="shadow appearance-none border rounded w-full py-2 px-3 mt-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
-                        type="text" placeholder="zip">
+                        type="text" placeholder="zip" id="zip-in">
                     <button
                         class="bg-transparent font-semibold py-2 px-4 rounded mt-2 button-style"
-                        type="submit">Search</button>
                         type="button" id="search-btn">Search</button>
                 </form>
             </div>
             <div class="block mt-2">
-                <h2 class="text-center text-l text-style logIn-style">Log In:</h2>
+                <h2 class="text-center text-l text-style">Log In:</h2>
                 <input
                     class="shadow appearance-none border rounded w-full py-1 px-3 mt-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
                     type="email" placeholder="email">
                 <input
                     class="shadow appearance-none border rounded w-full py-1 px-3 mt-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
                     type="password" placeholder="password">
+                <button
+                    class="bg-transparent font-semibold button-style py-2 px-4 rounded mt-2 w-full"
+                    type="button" id="login-btn">Log In</button>
             </div>
             </aside>
         <section class="col-span-4" id="mainSection">
-            <div>Pretend List1</div>
-            <div>Pretend List2</div>
-            <div>Pretend List3</div>
+            <div class="card-container">
+                <div class="card-box">
+                    <div class="card-info">
+                        <!-- address/hours/products -->
+                        <div class="card-title">
+                            <h2>Card Title</h2>
+                        </div>
+                        <div class="card-address">
+                            888 Main Street
+                        </div>
+                        <div class="card-link">
+                            <h3>Card Link</h3>
+                        </div>
+                        <div class="card-phone">
+                            <h4>1800-876-5309</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </section>
 
 
-    <script src="Assets/js/script.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
         crossorigin="anonymous"></script>
     <script src="./Assets/js/script.js"></script>
