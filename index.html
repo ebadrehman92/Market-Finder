@@ -12,29 +12,34 @@
         <h1>Title</h1>
     </header>
 
-    <aside>
-        <div>
-            <h2>Search function here</h2>
-            <input type = "text" placeholder = "zip">
-            <select id = "mileRadius">
-                <option>5</option>
-                <option>10</option>
-                <option>15</option>
-            </select>
-            <button type = "submit">Search</button>
-        </div>
-
-        <div>
-            <h2>Email entry</h2>
-            <input type = "email" placeholder = "email">
-            <input type = "password" placeholder = "password">
-        </div>
-    </aside> 
-
-    <section id = "mainSection">
-        <div>Pretend List</div>
-        <div>Pretend List2</div>
-        <div>Pretend List3</div>
+    <section class="grid grid-cols-5">
+        <aside class="col-span-1 ml-2 mt-2 mr-2">
+            <div class="block">
+                <h2 class="text-center text-2xl">Input Zipcode:</h2>
+                <form class="grid mr-2 content-center">
+                    <input
+                        class="shadow appearance-none border rounded w-full py-2 px-3 mt-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
+                        type="text" placeholder="zip">
+                    <button
+                        class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mt-2"
+                        type="submit">Search</button>
+                </form>
+            </div>
+            <div class="block mt-2">
+                <h2 class="text-center text-l">Log In:</h2>
+                <input
+                    class="shadow appearance-none border rounded w-full py-1 px-3 mt-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
+                    type="email" placeholder="email">
+                <input
+                    class="shadow appearance-none border rounded w-full py-1 px-3 mt-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
+                    type="password" placeholder="password">
+            </div>
+            </aside>
+        <section class="col-span-4" id="mainSection">
+            <div>Pretend List</div>
+            <div>Pretend List2</div>
+            <div>Pretend List3</div>
+        </section>
     </section>
 
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk="
