@@ -9,7 +9,7 @@ var marketCardContainer = $(".card-container"); // update with whatever html the
 
 
 function getResults(zip) {
-    fetch("http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip)
+    fetch("https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip)
         .then(function (response) {
             return response.json();
         })
@@ -27,7 +27,7 @@ function getResults(zip) {
 }
 
 function getDetails(id, i) {
-    fetch("http://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=" + id)
+    fetch("https://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=" + id)
         .then(function (response) {
             return response.json();
         })
