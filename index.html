@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Assets/css/reset.css">
     <link rel="stylesheet" href="./Assets/css/style.css" class="stylesheet">
     <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <title>Close Cuts</title>
@@ -20,8 +21,8 @@
         </div>
     </header>
 
-    <section class="grid grid-cols-5">
-        <aside class="col-span-1 ml-2 mt-2 mr-2">
+    <section class="grid grid-cols-5 ml-0">
+        <aside class="col-span-1 ml-0 mr-2 ml-0 bg-yellow-300 h-screen border-2 border-yellow-400 p-2">
             <div class="block">
                 <h2 class="text-center text-2xl">Input Zipcode:</h2>
                 <form class="grid mr-2 content-center">
@@ -29,7 +30,7 @@
                         class="shadow appearance-none border rounded w-full py-2 px-3 mt-2 text-gray-700 leading-tight focus:outline-none focus:shadow-outline text-center"
                         type="text" placeholder="zip">
                     <button
-                        class="bg-transparent hover:bg-blue-500 text-blue-700 font-semibold hover:text-white py-2 px-4 border border-blue-500 hover:border-transparent rounded mt-2"
+                        class="bg-transparent hover:bg-yellow-500 text-yellow-700 font-semibold hover:text-white py-2 px-4 border border-red-500 hover:border-transparent rounded mt-2"
                         type="submit">Search</button>
                 </form>
             </div>
