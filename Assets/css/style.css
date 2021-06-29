@@ -9,6 +9,13 @@
     display: flex;
     background: var(--lightGrey);
     line-height: 400%;
+    border-bottom: 2px solid var(--darkGreen);
+}
+
+.header-image {
+    height: 80px;
+    width: 80px;
+    display: inline;
 }
 
 /* styles Market Finder text in header */
@@ -41,7 +48,10 @@
 /* styles sidebar background */
 .sidebar-background{
     background-color: var(--lightGrey);
-    border: 2px solid var(--darkGreen);
+    border-bottom: 2px solid var(--darkGreen);
+    border-right: 2px solid var(--darkGreen);
+    border-left: 2px solid var(--darkGreen);
+    margin-top: 0px;
 }
 
 .zip-style{
