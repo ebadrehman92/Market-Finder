@@ -5,7 +5,7 @@
     --darkGreen: #1f5e43;
 }
 
-/* header styling */
+/* header */
 .styled-header {
     display: flex;
     background: var(--lightGrey);
@@ -68,10 +68,18 @@
     border: 1px solid var(--darkBrown);
 }
 
+    background: var(--darkBrown);
+    color: orange;
+    font-size: 20px;
+    font-style: italic;
+}
+
 .logo {
     margin-top: 5px;
+    display: inline-block;
 }
 
 .description {
-    text-align: right;
+    float: right;
+    margin-right: 25px;
 }
