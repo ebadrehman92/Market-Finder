@@ -59,11 +59,12 @@ function addMarketCards () {
     for (i = 0; i < details.length; i++) {
         cardTitle = marketNames.results[i].marketname;
         marketCardContainer.append("<div>"); // append new div in cardcontainer
+        console.log('divappend');
         marketCardContainer.children().eq(i).addClass("card-box"); // add box class to div
         marketCardContainer.children().eq(i).append("<div class='card-title'><h2></h2></div>"); // append content elements within this new div
         marketCardContainer.children().eq(i).children().eq(0).children().first().text(cardTitle);
 
-        address = details[i].Address; // need to set each variable properly
+        address = details[i].Address;
         marketCardContainer.children().eq(i).append("<div class='card-address'><h3></h3></div>");
         marketCardContainer.children().eq(i).children().eq(1).children().first().text(address);
 
@@ -91,6 +92,6 @@ searchBtn.on("click", function() {
 
 });
 
-recipeButton.on("click", function() {
-    getRecipe();
-})
+// recipeButton.on("click", function() {
+//     getRecipe();
+// })
