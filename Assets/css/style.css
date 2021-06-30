@@ -98,7 +98,7 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     padding: 10px 10px;
-    display: block;
+    display: flex;
     flex-direction: row;
 }
 
@@ -120,12 +120,17 @@
 }
 
 .card-title{
-    font-size: 18px;
+    font-size: 30px;
     font-weight: bold;
 }
 
 .hide {
     display: none;
+}
+
+.backgroundImg{
+    height: 100%;
+    width: 100%;
 }
 
 /* .card-link{
