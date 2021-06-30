@@ -8,7 +8,7 @@ var searchBtn = $('#search-btn');
 var marketCardContainer = $(".card-container"); // update with whatever html the market cards are made of
 var backgroundImg = $(".backgroundImg");
 
-var foodSearch = $("#food-in");
+var foodSearch = $("#select-btn");
 
 
 var recipeButton = $("#recipe-btn");
@@ -70,6 +70,13 @@ function getRecipe() {
         .then(function (data){
             console.log(data);
         })
+        .then(function () {
+            addRecipeCards();
+        });
+}
+
+function addRecipeCards () {
+
 }
 
 function addMarketCards () {
