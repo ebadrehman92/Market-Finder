@@ -7,7 +7,10 @@ var ingredients = "broccoli";
 var searchBtn = $('#search-btn');
 var marketCardContainer = $(".card-container"); // update with whatever html the market cards are made of
 var backgroundImg = $(".backgroundImg");
-
+var rememberMe = document.querySelector(".block mt-2"); // update with local storage
+var userInfo = document.querySelector("#userName");
+var userPassword = document.querySelector("#myPassword");
+var saveInfo = document.querySelector("#login-btn")
 
 function getResults(zip) {
     fetch("https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip)
@@ -87,3 +90,33 @@ searchBtn.on("click", function() {
 
     //getRecipe();
 });
+
+// adding event listener, saving it to local storage
+
+// // rememberMe.addEventListener('button', function(e) {
+// //     e.preventDefault();
+// })
+
+saveInfo.addEventListener('click', function() {
+    localStorage.setItem('email', userInfo.value);
+
+    nameDisplayCheck();
+})
+
+saveInfo.addEventListener('click', function() {
+    localStorage.setItem('password', userPassword.value);
+
+    nameDisplayCheck();
+});
+
+function nameDisplayCheck() {
+    if (localStorage.getItem('email')) {
+        let name = localStorage.getItem('email');
+    }
+}
+
+function nameDisplayCheck() {
+    if (localStorage.getItem('password')) {
+        let password = localStorage.getItem('password');
+    }
+}
