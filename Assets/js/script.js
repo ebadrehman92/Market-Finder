@@ -7,6 +7,7 @@ var ingredients = "broccoli";
 var searchBtn = $('#search-btn');
 var marketCardContainer = $(".card-container"); // update with whatever html the market cards are made of
 var backgroundImg = $(".backgroundImg");
+var foodSearch = $("#food-in");
 
 
 function getResults(zip) {
@@ -102,7 +103,7 @@ searchBtn.on("click", function() {
     marketCardContainer.removeClass("hide");
     
     getResults(zip);
-    
+    foodSearch.removeClass("hide");
 });
 
 // recipeButton.on("click", function() {
