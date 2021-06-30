@@ -52,7 +52,7 @@ function getRecipe() {
 
 function addMarketCards () {
     var cardTitle;
-    var link;
+    var address;
     var products;
     var hours;
 
@@ -63,14 +63,18 @@ function addMarketCards () {
         marketCardContainer.children().eq(i).append("<div class='card-title'><h2></h2></div>"); // append content elements within this new div
         marketCardContainer.children().eq(i).children().eq(0).children().first().text(cardTitle);
 
-        marketCardContainer.children().eq(i).append("<div class='card-link'><h3></h3></div>");
-        marketCardContainer.children().eq(i).children().eq(1).children().first().text(link);
+        address = details[i].Address; // need to set each variable properly
+        marketCardContainer.children().eq(i).append("<div class='card-address'><h3></h3></div>");
+        marketCardContainer.children().eq(i).children().eq(1).children().first().text(address);
 
-        marketCardContainer.children().eq(i).append("<div class='card-reviews'><h3></h3></div>");
+        // set products and also add a button and assign it to variable recipeButton
+        marketCardContainer.children().eq(i).append("<div class='card-products'><h3></h3></div>");
         marketCardContainer.children().eq(i).children().eq(2).children().first().text(products);
 
-        marketCardContainer.children().eq(i).append("<div class='card-phone'><h4></h4></div>");
+        // set hours
+        marketCardContainer.children().eq(i).append("<div class='card-hours'><h4></h4></div>");
         marketCardContainer.children().eq(i).children().eq(3).children().first().text(hours);
+
     }
 }
 
@@ -78,12 +82,15 @@ searchBtn.on("click", function() {
     var zip = $("#zip-in").val();
     console.log(zip);
 
-    marketCardContainer.removeClass("hide");
     backgroundImg.addClass("hide");
+    marketCardContainer.removeClass("hide");
+    
+    getResults(zip);
     
     addMarketCards();
 
-    getResults(zip);
-
-    //getRecipe();
 });
+
+recipeButton.on("click", function() {
+    getRecipe();
+})
