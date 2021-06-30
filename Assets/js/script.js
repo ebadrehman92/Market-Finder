@@ -53,8 +53,8 @@ function getRecipe() {
 function addMarketCards () {
     var cardTitle;
     var link;
-    var reviews;
-    var phone;
+    var products;
+    var hours;
 
     for (i = 0; i < details.length; i++) {
         cardTitle = marketNames.results[i].marketname;
@@ -67,10 +67,10 @@ function addMarketCards () {
         marketCardContainer.children().eq(i).children().eq(1).children().first().text(link);
 
         marketCardContainer.children().eq(i).append("<div class='card-reviews'><h3></h3></div>");
-        marketCardContainer.children().eq(i).children().eq(2).children().first().text(reviews);
+        marketCardContainer.children().eq(i).children().eq(2).children().first().text(products);
 
         marketCardContainer.children().eq(i).append("<div class='card-phone'><h4></h4></div>");
-        marketCardContainer.children().eq(i).children().eq(3).children().first().text(phone);
+        marketCardContainer.children().eq(i).children().eq(3).children().first().text(hours);
     }
 }
 
