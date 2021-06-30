@@ -1,13 +1,13 @@
 var id = [];
 var details = [];
 var marketNames = [];
-var ingredients = "broccoli"
+var ingredient = "broccoli"
 var recipeKey = "ed84eec3dc524169bf8954cb1aa495ef";
 var ingredients = "broccoli";
 var searchBtn = $('#search-btn');
 var marketCardContainer = $(".card-container"); // update with whatever html the market cards are made of
 var backgroundImg = $(".backgroundImg");
-
+var recipeButton = $("#recipe-btn");
 
 function getResults(zip) {
     fetch("https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip)
@@ -54,7 +54,7 @@ function getDetails(id) {
 }
 
 function getRecipe() {
-    fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=" + recipeKey + "&ingredients=" + ingredients)
+    fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=" + recipeKey + "&ingredients=" + ingredient)
         .then(function (response) {
             return response.json();
         })
@@ -91,7 +91,6 @@ function addMarketCards () {
         hours = hours.substring(0, hours.length-16);
         marketCardContainer.children().eq(i).append("<div class='card-hours'><h4></h4></div>");
         marketCardContainer.children().eq(i).children().eq(3).children().first().text(hours);
-
     }
 }
 
@@ -109,6 +108,12 @@ searchBtn.on("click", function() {
     
 });
 
-// recipeButton.on("click", function() {
-//     getRecipe();
-// })
+recipeButton.on("click", function() {
+    var ingredient = $("#zip-in").val();
+    console.log(ingredient);
+
+    backgroundImg.addClass("hide");
+    marketCardContainer.removeClass("hide");
+    
+    getRecipe(ingredient);
+})
