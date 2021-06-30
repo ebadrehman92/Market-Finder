@@ -7,11 +7,16 @@ var ingredients = "broccoli";
 var searchBtn = $('#search-btn');
 var marketCardContainer = $(".card-container"); // update with whatever html the market cards are made of
 var backgroundImg = $(".backgroundImg");
+
+var foodSearch = $("#food-in");
+
+
 var recipeButton = $("#recipe-btn");
 var rememberMe = document.querySelector(".block mt-2"); // update with local storage
 var userInfo = document.querySelector("#userName");
 var userPassword = document.querySelector("#myPassword");
 var saveInfo = document.querySelector("#login-btn")
+
 
 function getResults(zip) {
     fetch("https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip)
@@ -109,7 +114,7 @@ searchBtn.on("click", function() {
     marketCardContainer.removeClass("hide");
     
     getResults(zip);
-    
+    foodSearch.removeClass("hide");
 });
 
 recipeButton.on("click", function() {
