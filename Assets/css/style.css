@@ -49,7 +49,6 @@
 /* styles sidebar background */
 .sidebar-background{
     background-color: var(--lightGrey);
-    border-bottom: 2px solid var(--darkGreen);
     border-right: 2px solid var(--darkGreen);
     border-left: 2px solid var(--darkGreen);
     margin-top: 0px;
@@ -174,11 +173,11 @@
       padding-top: 20px;
   }
   .foot {
-      background-color: rgb(192, 191, 191);
+      background-color: var(--lightGrey);
       height: 280px;
       width: 100%;
-      border-top: 2px black solid;
-
+      border-top: 2px var(--darkGreen) solid;
+      color: var(--darkBrown);
   }
 
   #space {
