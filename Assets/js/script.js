@@ -108,8 +108,7 @@ searchBtn.on("click", function() {
     
 });
 
-    //getRecipe();
-});
+    //getRecipe();;
 
 // adding event listener, saving it to local storage
 
