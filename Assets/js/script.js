@@ -1,13 +1,17 @@
 var id = [];
 var details = [];
 var marketNames = [];
-var ingredients = "broccoli"
+var ingredient = "broccoli"
 var recipeKey = "ed84eec3dc524169bf8954cb1aa495ef";
 var ingredients = "broccoli";
 var searchBtn = $('#search-btn');
 var marketCardContainer = $(".card-container"); // update with whatever html the market cards are made of
 var backgroundImg = $(".backgroundImg");
-
+var recipeButton = $("#recipe-btn");
+var rememberMe = document.querySelector(".block mt-2"); // update with local storage
+var userInfo = document.querySelector("#userName");
+var userPassword = document.querySelector("#myPassword");
+var saveInfo = document.querySelector("#login-btn")
 
 function getResults(zip) {
     fetch("https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip)
@@ -54,7 +58,7 @@ function getDetails(id) {
 }
 
 function getRecipe() {
-    fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=" + recipeKey + "&ingredients=" + ingredients)
+    fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=" + recipeKey + "&ingredients=" + ingredient)
         .then(function (response) {
             return response.json();
         })
@@ -69,7 +73,12 @@ function addMarketCards () {
     var address;
     var products;
     var hours;
+
     console.log(details);
+
+    marketCardContainer.empty();
+
+
     for (i = 0; i < details.length; i++) {
         cardTitle = marketNames.results[i].marketname;
         marketCardContainer.append("<div>"); // append new div in cardcontainer
@@ -90,11 +99,13 @@ function addMarketCards () {
         hours = hours.substring(0, hours.length-16);
         marketCardContainer.children().eq(i).append("<div class='card-hours'><h4></h4></div>");
         marketCardContainer.children().eq(i).children().eq(3).children().first().text(hours);
-
     }
 }
 
 searchBtn.on("click", function() {
+    marketNames = [];
+    details = [];
+    id = [];
     var zip = $("#zip-in").val();
     console.log(zip);
 
@@ -105,6 +116,42 @@ searchBtn.on("click", function() {
     
 });
 
+
 // recipeButton.on("click", function() {
 //     getRecipe();
 // })
+
+recipeButton.on("click", function() {
+    var ingredient = $("#zip-in").val();
+    console.log(ingredient);
+
+    backgroundImg.addClass("hide");
+    marketCardContainer.removeClass("hide");
+    
+    getRecipe(ingredient);
+})
+
+saveInfo.addEventListener('click', function() {
+    localStorage.setItem('email', userInfo.value);
+
+    nameDisplayCheck();
+})
+
+saveInfo.addEventListener('click', function() {
+    localStorage.setItem('password', userPassword.value);
+
+    nameDisplayCheck();
+});
+
+function nameDisplayCheck() {
+    if (localStorage.getItem('email')) {
+        let name = localStorage.getItem('email');
+    }
+}
+
+function nameDisplayCheck() {
+    if (localStorage.getItem('password')) {
+        let password = localStorage.getItem('password');
+    }
+}
+
