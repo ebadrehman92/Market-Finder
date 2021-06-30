@@ -86,7 +86,7 @@ The addMarketCards function is also called in the event listener for the submit 
 # Live Link and Screenshot
 https://abaxley2.github.io/Project-1/
 
-![Market Finder Image](https://abaxley2.github.io/Project-1/MarketFinder.png)
+![Market Finder Image](https://abaxley2.github.io/Project-1/Assets/images/MarketFinder.png)
 
 # Contributions
 The following links are the APIs used in this page
