@@ -68,11 +68,12 @@ function addMarketCards () {
         marketCardContainer.children().eq(i).append("<div class='card-address'><h3></h3></div>");
         marketCardContainer.children().eq(i).children().eq(1).children().first().text(address);
 
-        // set products and also add a button and assign it to variable recipeButton
+        products = details[i].Products;
         marketCardContainer.children().eq(i).append("<div class='card-products'><h3></h3></div>");
         marketCardContainer.children().eq(i).children().eq(2).children().first().text(products);
 
-        // set hours
+        hours = details[i].Schedule;
+        hours = hours.substring(0, hours.length-16);
         marketCardContainer.children().eq(i).append("<div class='card-hours'><h4></h4></div>");
         marketCardContainer.children().eq(i).children().eq(3).children().first().text(hours);
 
@@ -89,7 +90,6 @@ searchBtn.on("click", function() {
     getResults(zip);
     
     addMarketCards();
-
 });
 
 // recipeButton.on("click", function() {
