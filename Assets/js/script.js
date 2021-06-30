@@ -6,6 +6,7 @@ var recipeKey = "ed84eec3dc524169bf8954cb1aa495ef";
 var ingredients = "broccoli";
 var searchBtn = $('#search-btn');
 var marketCardContainer = $(".card-container"); // update with whatever html the market cards are made of
+var backgroundImg = $(".backgroundImg");
 
 
 function getResults(zip) {
@@ -76,9 +77,13 @@ function addMarketCards () {
 searchBtn.on("click", function() {
     var zip = $("#zip-in").val();
     console.log(zip);
+
+    marketCardContainer.removeClass("hide");
+    backgroundImg.addClass("hide");
     
     addMarketCards();
 
     getResults(zip);
+
     //getRecipe();
 });
