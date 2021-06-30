@@ -73,7 +73,11 @@ function addMarketCards () {
     var address;
     var products;
     var hours;
+
+    console.log(details);
+
     marketCardContainer.empty();
+
 
     for (i = 0; i < details.length; i++) {
         cardTitle = marketNames.results[i].marketname;
@@ -112,6 +116,11 @@ searchBtn.on("click", function() {
     
 });
 
+
+// recipeButton.on("click", function() {
+//     getRecipe();
+// })
+
 recipeButton.on("click", function() {
     var ingredient = $("#zip-in").val();
     console.log(ingredient);
@@ -145,3 +154,4 @@ function nameDisplayCheck() {
         let password = localStorage.getItem('password');
     }
 }
+
