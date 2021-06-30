@@ -95,3 +95,5 @@ https://search.ams.usda.gov/farmersmarkets/v1/svcdesc.html
 Recipe API
 https://spoonacular.com/food-api
 
+This is the link used to create the logo
+https://www.freelogodesign.org/

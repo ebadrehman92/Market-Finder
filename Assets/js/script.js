@@ -59,25 +59,31 @@ function getRecipe() {
 function addMarketCards () {
     console.log("adding market cards");
     var cardTitle;
-    var link;
+    var address;
     var products;
     var hours;
     console.log(details);
     for (i = 0; i < details.length; i++) {
         cardTitle = marketNames.results[i].marketname;
         marketCardContainer.append("<div>"); // append new div in cardcontainer
+        console.log('divappend');
         marketCardContainer.children().eq(i).addClass("card-box"); // add box class to div
         marketCardContainer.children().eq(i).append("<div class='card-title'><h2></h2></div>"); // append content elements within this new div
         marketCardContainer.children().eq(i).children().eq(0).children().first().text(cardTitle);
 
-        marketCardContainer.children().eq(i).append("<div class='card-link'><h3></h3></div>");
-        marketCardContainer.children().eq(i).children().eq(1).children().first().text(link);
+        address = details[i].Address;
+        marketCardContainer.children().eq(i).append("<div class='card-address'><h3></h3></div>");
+        marketCardContainer.children().eq(i).children().eq(1).children().first().text(address);
 
-        marketCardContainer.children().eq(i).append("<div class='card-reviews'><h3></h3></div>");
+        products = details[i].Products;
+        marketCardContainer.children().eq(i).append("<div class='card-products'><h3></h3></div>");
         marketCardContainer.children().eq(i).children().eq(2).children().first().text(products);
 
-        marketCardContainer.children().eq(i).append("<div class='card-phone'><h4></h4></div>");
+        hours = details[i].Schedule;
+        hours = hours.substring(0, hours.length-16);
+        marketCardContainer.children().eq(i).append("<div class='card-hours'><h4></h4></div>");
         marketCardContainer.children().eq(i).children().eq(3).children().first().text(hours);
+
     }
 }
 
@@ -85,9 +91,14 @@ searchBtn.on("click", function() {
     var zip = $("#zip-in").val();
     console.log(zip);
 
-    marketCardContainer.removeClass("hide");
     backgroundImg.addClass("hide");
-
+    marketCardContainer.removeClass("hide");
+    
     getResults(zip);
-    //getRecipe();
+    
+    addMarketCards();
 });
+
+// recipeButton.on("click", function() {
+//     getRecipe();
+// })
