@@ -12,32 +12,45 @@ var backgroundImg = $(".backgroundImg");
 function getResults(zip) {
     fetch("https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip)
         .then(function (response) {
+            console.log(response);
             return response.json();
         })
         .then(function (data) {
             console.log(data);
             marketNames = data;
             for (var i = 0; i < data.results.length; i++) {
-                id[i] = data.results[i].id;
-                getDetails(id[i], i);
+                id.push(data.results[i].id);
+                //console.log("id: " + id);
+                
             }
+            getDetails(id);
             console.log(details);
-            return marketNames;
+            console.log(details.length);
+            // addMarketCards();
+            // return marketNames;
             return details;
-    });
+        })
+        .then(function (details) {
+            console.log(details.length);
+            setTimeout(function(){ addMarketCards(); }, 200);
+        })
 }
 
-function getDetails(id, i) {
-    fetch("https://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=" + id)
-        .then(function (response) {
-            return response.json();
-        })
-        .then(function (data) {
-            //console.log(data);
-            details[i] = data.marketdetails;
-            //console.log(details);
-            return details;
-    });
+function getDetails(id) {
+    console.log("Do I get the id array" + id);
+    for (var i = 0; i < id.length; i++) {
+       fetch("https://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=" + id[i])
+            .then(function (response) {
+                return response.json();
+            })
+            .then(function (data) {
+                //console.log(data);
+                details.push(data.marketdetails);
+                //console.log(details);
+                return details;
+        });
+    }
+    
 }
 
 function getRecipe() {
@@ -51,6 +64,7 @@ function getRecipe() {
 }
 
 function addMarketCards () {
+    console.log("adding cards");
     var cardTitle;
     var address;
     var products;
@@ -89,7 +103,6 @@ searchBtn.on("click", function() {
     
     getResults(zip);
     
-    addMarketCards();
 });
 
 // recipeButton.on("click", function() {
