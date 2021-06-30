@@ -69,6 +69,7 @@ function addMarketCards () {
     var address;
     var products;
     var hours;
+    marketCardContainer.empty();
 
     for (i = 0; i < details.length; i++) {
         cardTitle = marketNames.results[i].marketname;
@@ -95,6 +96,9 @@ function addMarketCards () {
 }
 
 searchBtn.on("click", function() {
+    marketNames = [];
+    details = [];
+    id = [];
     var zip = $("#zip-in").val();
     console.log(zip);
 
