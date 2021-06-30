@@ -6,10 +6,11 @@ var recipeKey = "ed84eec3dc524169bf8954cb1aa495ef";
 var ingredients = "broccoli";
 var searchBtn = $('#search-btn');
 var marketCardContainer = $(".card-container"); // update with whatever html the market cards are made of
+var backgroundImg = $(".backgroundImg");
 
 
 function getResults(zip) {
-    fetch("http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip)
+    fetch("https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip)
         .then(function (response) {
             return response.json();
         })
@@ -27,7 +28,7 @@ function getResults(zip) {
 }
 
 function getDetails(id, i) {
-    fetch("http://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=" + id)
+    fetch("https://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=" + id)
         .then(function (response) {
             return response.json();
         })
@@ -71,15 +72,18 @@ function addMarketCards () {
         marketCardContainer.children().eq(i).append("<div class='card-phone'><h4></h4></div>");
         marketCardContainer.children().eq(i).children().eq(3).children().first().text(phone);
     }
-        
 }
 
 searchBtn.on("click", function() {
     var zip = $("#zip-in").val();
     console.log(zip);
+
+    marketCardContainer.removeClass("hide");
+    backgroundImg.addClass("hide");
     
     addMarketCards();
 
     getResults(zip);
+
     //getRecipe();
 });
