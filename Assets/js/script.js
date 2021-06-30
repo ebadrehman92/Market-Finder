@@ -24,8 +24,14 @@ function getResults(zip) {
             console.log(details);
             return marketNames;
             return details;
-    });
-}
+    })
+        .then(function(){
+            addMarketCards();
+            console.log(details.length);
+        }
+        
+        );
+};
 
 function getDetails(id, i) {
     fetch("https://search.ams.usda.gov/farmersmarkets/v1/data.svc/mktDetail?id=" + id)
@@ -51,11 +57,12 @@ function getRecipe() {
 }
 
 function addMarketCards () {
+    console.log("adding market cards");
     var cardTitle;
     var link;
     var products;
     var hours;
-
+    console.log(details);
     for (i = 0; i < details.length; i++) {
         cardTitle = marketNames.results[i].marketname;
         marketCardContainer.append("<div>"); // append new div in cardcontainer
@@ -80,10 +87,7 @@ searchBtn.on("click", function() {
 
     marketCardContainer.removeClass("hide");
     backgroundImg.addClass("hide");
-    
-    addMarketCards();
 
     getResults(zip);
-
     //getRecipe();
 });
