@@ -10,6 +10,9 @@
     background: var(--lightGrey);
     line-height: 400%;
     border-bottom: 2px solid var(--darkGreen);
+    border-top: 1px solid var(--darkGreen);
+    border-right: 2px var(--darkGreen) solid;
+    border-left: 2px var(--darkGreen) solid;
 }
 
 /* styles logo */
@@ -172,6 +175,9 @@
     width: 100%;
     border-top: 2px var(--darkGreen) solid;
     color: var(--darkBrown);
+    border-bottom: 1px var(--darkGreen) solid;
+    border-right: 2px var(--darkGreen) solid;
+    border-left: 2px var(--darkGreen) solid;
 }
 
 #space {
