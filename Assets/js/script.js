@@ -121,7 +121,7 @@ searchBtn.on("click", function() {
     marketCardContainer.removeClass("hide");
     
     getResults(zip);
-    foodSearch.removeClass("hide");
+    $('#food-in').removeClass("hide");
 });
 
 recipeButton.on("click", function() {
