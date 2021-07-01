@@ -1,9 +1,8 @@
 var id = [];
 var details = [];
 var marketNames = [];
-var ingredient = "broccoli"
+var ingredient = [];
 var recipeKey = "ed84eec3dc524169bf8954cb1aa495ef";
-var ingredients = "broccoli";
 var searchBtn = $('#search-btn');
 var cardContainer = $(".card-container"); // update with whatever html the market cards are made of
 var backgroundImg = $(".backgroundImg");
@@ -139,7 +138,7 @@ searchBtn.on("click", function() {
 });
 
 recipeButton.on("click", function() {
-    var ingredient = $("#zip-in").val();
+    ingredient = $("#recipe-in").val();
     console.log(ingredient);
 
     backgroundImg.addClass("hide");
