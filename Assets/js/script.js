@@ -5,11 +5,8 @@ var ingredient = "broccoli"
 var recipeKey = "ed84eec3dc524169bf8954cb1aa495ef";
 var ingredients = "broccoli";
 var searchBtn = $('#search-btn');
-var marketCardContainer = $(".card-container"); // update with whatever html the market cards are made of
+var cardContainer = $(".card-container"); // update with whatever html the market cards are made of
 var backgroundImg = $(".backgroundImg");
-
-var foodSearch = $("#select-btn");
-
 
 var recipeButton = $("#recipe-btn");
 var rememberMe = document.querySelector(".block mt-2"); // update with local storage
@@ -69,6 +66,8 @@ function getRecipe() {
         })
         .then(function (data){
             console.log(data);
+            recipes = data;
+            return recipes;
         })
         .then(function () {
             addRecipeCards();
@@ -76,7 +75,22 @@ function getRecipe() {
 }
 
 function addRecipeCards () {
+    console.log("adding cards");
+    var recipeTitle;
+    var imgLink;
+    cardContainer.empty();
 
+    for (i = 0; i < recipes.length; i++) {
+        recipeTitle = recipes[i].title;
+        cardContainer.append("<div>"); // append new div in cardcontainer
+        console.log('divappend');
+        cardContainer.children().eq(i).addClass("card-box"); // add box class to div
+        cardContainer.children().eq(i).append("<div class='card-title'><h2></h2></div>"); // append content elements within this new div
+        cardContainer.children().eq(i).children().eq(0).children().first().text(recipeTitle);
+
+        imgLink = recipes[i].image;
+        cardContainer.children().eq(i).append("<div class='card-img'><img src='" + imgLink + "' </img></div>");
+    }
 }
 
 function addMarketCards () {
@@ -85,28 +99,28 @@ function addMarketCards () {
     var address;
     var products;
     var hours;
-    marketCardContainer.empty();
+    cardContainer.empty();
 
     for (i = 0; i < details.length; i++) {
         cardTitle = marketNames.results[i].marketname;
-        marketCardContainer.append("<div>"); // append new div in cardcontainer
+        cardContainer.append("<div>"); // append new div in cardcontainer
         console.log('divappend');
-        marketCardContainer.children().eq(i).addClass("card-box"); // add box class to div
-        marketCardContainer.children().eq(i).append("<div class='card-title'><h2></h2></div>"); // append content elements within this new div
-        marketCardContainer.children().eq(i).children().eq(0).children().first().text(cardTitle);
+        cardContainer.children().eq(i).addClass("card-box"); // add box class to div
+        cardContainer.children().eq(i).append("<div class='card-title'><h2></h2></div>"); // append content elements within this new div
+        cardContainer.children().eq(i).children().eq(0).children().first().text(cardTitle);
 
         address = details[i].Address;
-        marketCardContainer.children().eq(i).append("<div class='card-address'><h3></h3></div>");
-        marketCardContainer.children().eq(i).children().eq(1).children().first().text(address);
+        cardContainer.children().eq(i).append("<div class='card-address'><h3></h3></div>");
+        cardContainer.children().eq(i).children().eq(1).children().first().text(address);
 
         products = details[i].Products;
-        marketCardContainer.children().eq(i).append("<div class='card-products'><h3></h3></div>");
-        marketCardContainer.children().eq(i).children().eq(2).children().first().text(products);
+        cardContainer.children().eq(i).append("<div class='card-products'><h3></h3></div>");
+        cardContainer.children().eq(i).children().eq(2).children().first().text(products);
 
         hours = details[i].Schedule;
         hours = hours.substring(0, hours.length-16);
-        marketCardContainer.children().eq(i).append("<div class='card-hours'><h4></h4></div>");
-        marketCardContainer.children().eq(i).children().eq(3).children().first().text(hours);
+        cardContainer.children().eq(i).append("<div class='card-hours'><h4></h4></div>");
+        cardContainer.children().eq(i).children().eq(3).children().first().text(hours);
     }
 }
 
@@ -118,7 +132,7 @@ searchBtn.on("click", function() {
     console.log(zip);
 
     backgroundImg.addClass("hide");
-    marketCardContainer.removeClass("hide");
+    cardContainer.removeClass("hide");
     
     getResults(zip);
     $('#food-in').removeClass("hide");
@@ -129,7 +143,7 @@ recipeButton.on("click", function() {
     console.log(ingredient);
 
     backgroundImg.addClass("hide");
-    marketCardContainer.removeClass("hide");
+    cardContainer.removeClass("hide");
     
     getRecipe(ingredient);
 })
