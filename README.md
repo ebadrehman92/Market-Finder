@@ -8,18 +8,25 @@ SO THAT I can attend them and support my local community while eating healthy
 # Usage
 Upon the webpage loading, users will see an a sidebar asking for a zip code input. Once they submit a zip code a list of farmer's markets will appear on the right side of the page. Each farmer's market within the list will contain AN ADDRESS, ITEMS SOLD THERE, AND A NAME FOR THE MARKET. 
 
+# Tailwind
+Tailwind was the chosen css library for styling this page. Classes were added within the HTML file changing the layout and colors of desired elements. 
+
 # Functionality
 The two inputs within the side bar were created using input elements with buttons. The information entered into the zip code input space is accessed in the javascript and passed into the getResults function as a parameter. It is the added to the end of the api url in order to access an array of markets for that zip code. 
 
 ```javascript
 searchBtn.on("click", function() {
+    marketNames = [];
+    details = [];
+    id = [];
     var zip = $("#zip-in").val();
     console.log(zip);
-    
-    addMarketCards();
 
+    backgroundImg.addClass("hide");
+    cardContainer.removeClass("hide");
+    
     getResults(zip);
-    //getRecipe();
+    $('#food-in').removeClass("hide");
 });
 ```
 Listed above is the event listener for the click on the search button under the zip code input. It accesses the value entered and then runs the getResults function with it. 
@@ -27,24 +34,33 @@ Listed above is the event listener for the click on the search button under the 
 The getResults function contains this fetch call
 
 ```javascript
- fetch("http://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip)
+ fetch("https://search.ams.usda.gov/farmersmarkets/v1/data.svc/zipSearch?zip=" + zip)
         .then(function (response) {
+            console.log(response);
             return response.json();
         })
         .then(function (data) {
             console.log(data);
             marketNames = data;
             for (var i = 0; i < data.results.length; i++) {
-                id[i] = data.results[i].id;
-                getDetails(id[i], i);
+                id.push(data.results[i].id);
+                //console.log("id: " + id);
+                
             }
+            getDetails(id);
             console.log(details);
-            return marketNames;
+            console.log(details.length);
+            // addMarketCards();
+            // return marketNames;
             return details;
-    });
+        })
+        .then(function (details) {
+            console.log(details.length);
+            setTimeout(function(){ addMarketCards(); }, 200);
+        })
 ```
 
-CLARIFY WHAT THE FOR LOOP DOES
+This is getting the values for the entered zip by the user. A timer was added to allow for enough time for the information to be gathered before populating the page. 
 
 The getDetails function is then run using the id for each market along with the number it is the array. The getDetails function contains an additional API call gathering details for each of the listed markets. 
 
@@ -82,7 +98,58 @@ The addMarketCards function is also called in the event listener for the submit 
     }
 
 ```
+In order for the recipe search to work an additional event listener was added to the javascript. 
 
+```javascript
+recipeButton.on("click", function() {
+    ingredient = $("#recipe-in").val();
+    console.log(ingredient);
+
+    backgroundImg.addClass("hide");
+    cardContainer.removeClass("hide");
+    
+    getRecipe(ingredient);
+})
+```
+This changes what is shown on the page through adding and removing the hide class which is display: none in style.css. It also runs the getRecipe function which contains the fetch call for the second API. 
+
+
+```javascript
+  fetch("https://api.spoonacular.com/recipes/findByIngredients?apiKey=" + recipeKey + "&ingredients=" + ingredient)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data){
+            console.log(data);
+            recipes = data;
+            return recipes;
+        })
+        .then(function () {
+            addRecipeCards();
+        });
+```
+
+The addRecipeCards function is then called and the recipe cards are populated with images and recipe titles 
+
+```javascript
+   var recipeTitle;
+    var imgLink;
+    cardContainer.empty();
+
+    for (i = 0; i < recipes.length; i++) {
+        recipeTitle = recipes[i].title;
+        cardContainer.append("<div>"); // append new div in cardcontainer
+        console.log('divappend');
+        cardContainer.children().eq(i).addClass("card-box"); // add box class to div
+        cardContainer.children().eq(i).append("<div class='card-title'><h2></h2></div>"); // append content elements within this new div
+        cardContainer.children().eq(i).children().eq(0).children().first().text(recipeTitle);
+
+        imgLink = recipes[i].image;
+        cardContainer.children().eq(i).append("<div class='card-img'><img src='" + imgLink + "' </img></div>");
+    }
+```
+
+There is also an email and password log in where users information is saved into local storage upon a click of the log in button. This will allow future development to be added. 
 # Live Link and Screenshot
 https://abaxley2.github.io/Project-1/
 
