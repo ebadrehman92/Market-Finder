@@ -151,7 +151,7 @@ The addRecipeCards function is then called and the recipe cards are populated wi
 
 There is also an email and password log in where users information is saved into local storage upon a click of the log in button. This will allow future development to be added. 
 # Live Link and Screenshot
-https://abaxley2.github.io/Project-1/
+https://ebadrehman92.github.io/Market-Finder/
 
 ![Market Finder Image](https://abaxley2.github.io/Project-1/Assets/images/MarketFinder.png)
 
