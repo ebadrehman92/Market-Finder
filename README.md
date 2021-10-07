@@ -153,7 +153,7 @@ There is also an email and password log in where users information is saved into
 # Live Link and Screenshot
 https://ebadrehman92.github.io/Market-Finder/
 
-![Market Finder Image](https://abaxley2.github.io/Project-1/Assets/images/MarketFinder.png)
+<img width="1420" alt="marketFinder" src="https://user-images.githubusercontent.com/64440230/136472703-8ef1cd37-b941-4cf4-bfbb-32d1f9d4a584.png">
 
 # Contributions
 The following links are the APIs used in this page
